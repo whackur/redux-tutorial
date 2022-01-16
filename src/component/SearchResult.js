@@ -12,6 +12,8 @@ const SearchResult = (props) => {
     shallowEqual,
   )
 
+  console.log('searchKeyword in SearchResult => ', searchKeyword);
+
   return (
     <>
       <p>SearchResult Component</p>
