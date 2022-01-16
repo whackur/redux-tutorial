@@ -1,12 +1,18 @@
 import {useState} from "react";
-
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import * as searchActions from '../store/modules/search/actions';
 
 const Search = (props) => {
-  const [inputValue, setInputValue] = useState('Button');
-  const handleInputChange = (e) => {
-    console.log(e.target.name);
+
+  const dispatch = useDispatch();
+
+  const handleInputChange =(e) =>{
     console.log(e.target.value);
-    setInputValue(e.target.value);
+    dispatch(searchActions.change_search_keyword(e.target.value));
+  }
+
+  const handleSearchKeyword = () => {
+
   }
 
   return (
@@ -16,6 +22,11 @@ const Search = (props) => {
         onChange={handleInputChange}
       />
       <p>Search Component</p>
+      <button
+        onClick={handleSearchKeyword}
+      >
+        검색
+      </button>
     </>
   )
 }

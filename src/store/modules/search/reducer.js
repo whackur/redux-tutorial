@@ -10,6 +10,7 @@ const initialState = {
 const search = handleActions(
   {
     [SEARCH.CHANGE_SEARCH_KEYWORD]: (state, action) => {
+      console.log('CHANGE_SEARCH_KEYWORD => ', action.payload)
       produce(state, (draft) => {
         draft.searchKeyword = action.payload;
       })
